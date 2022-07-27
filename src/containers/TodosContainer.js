@@ -18,6 +18,7 @@ const TodosContainer = () => {
   // const onToggle = useCallback(id => dispatch(toggle(id)), [dispatch]);
   // const onRemove = useCallback(id => dispatch(remove(id)), [dispatch]);
 
+  // useActions
   const [onChnageInput, onInsert, onToggle, onRemove] = useActions([changeInput, insert, toggle, remove],[]);
 
   return (
