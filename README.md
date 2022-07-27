@@ -310,6 +310,7 @@ useStore는 컴포넌트에서 스토어에 직접 접근해야 하는 상황에
 
 ### useActions 유틸 Hook
 
+[React Redux 의 useActions()](https://react-redux.js.org/api/hooks#recipe-useactions)
 useActions Hook 은 액션 생성 함수를 액션을 디스패치하는 함수로 변환해준다.
 
 액션 생성 함수를 사용하여 액션 객체를 만들어 스토어에 디스패치하는 작업을 해주는 함수를 자동으로 만들어 준다.
@@ -328,11 +329,3 @@ useActions 에 파라미터로 **액션 생성 함수로 이루어진 배열**�
 React.memo() 는 부모 컴포넌트가 리렌더링 될 때 해당 컨테이너 컴포넌트의 props가 바뀌지 않았다면 리렌더링 되지 않도록 방지해준다.
 
 지금과 같은 경우는 TodosContainer의 부모 컴포넌트인 App 컴포넌트가 리렌더링 될 일이 없어 풀필요한 성능 최적화이다.
-
-
-
-
-
-
-
-
