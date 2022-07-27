@@ -12,11 +12,13 @@
 $ yarn add redux react-redux
 ```
 
+
 ## 모듈 생성
 
 액션 타입 정의 - 액션 생성 함수 - 초기 상태 선언 - reducer 함수
 
 위와 같은 순서로 만들면 된다.
+
 
 ### 액션 타입 정의, 액션 생성 함수
 
@@ -60,6 +62,7 @@ function counter(state = initialState, action) {
 export default counter;
 ```
 
+
 ### export 와 export default
 
 module을 export 할 때
@@ -90,6 +93,7 @@ import counter, { increase, decrease } from './counter';
 import rootReducer from './modules';
 ```
 
+
 ## 리덕스 적용하기
 
 ### 스토어, Provider 컴포넌트 사용
@@ -112,6 +116,7 @@ root.render(
 );
 ```
 
+
 ### Redux DevTools 설치 및 적용
 크롬 웹 스토어에서 검색
 
@@ -129,6 +134,7 @@ const store = createStore(rootReducer, composeWithDevTools());
 1. 개발자 도구에서 Redux 선택
 2. 리덕스 개발자 도구 안의 State 버튼 클릭
 3. 스토어 내부의 상태 확인
+
 
 ## 컨테이너 컴포넌트 만들기
 
@@ -180,7 +186,6 @@ export default connect(
 ```
 
 App.js
-
 ```javascript
 import React from 'react';
 import Todos from './components/Todos';
@@ -198,11 +203,13 @@ const App = () => {
 
 export default App;
 ```
+
 나중에 Todos도 TodosContainer를 만들면 CounterContainer와 같이 바뀐다.
 
 CounterContainer.js 에서
 
 `import { increase, decrease } from '../modules/counter';`
+
 추가해준다.
 
 `console.log('increase');` 대신 `dispatch(increase());` 로 바꿔준다.
@@ -275,6 +282,7 @@ $ yarn add redux-actions
 [modules/counter.js](https://github.com/KNIGHTWED/react-redux-tutorial/blob/main/src/modules/counter.js)
 
 액션 생성 함수는 `createAction`, 
+
 리듀스는 `handleActions` 를 사용하면 코드 가독성이 높아진다.
 
 
@@ -288,9 +296,11 @@ $ yarn add immer
 
 immer를 사용하면 코드가 더 길어질 수 있기 때문에 immer를 꼭 적용할 필요는 없다.
 
+
 ## Hooks
 
 connect 함수 대신 react-redux 에서 제공하는 Hooks를 사용할 수 있다.
+
 
 ### useSelector
 
@@ -304,13 +314,16 @@ Counter 태그 안에 `onIncrease={() => dispatch(increase())}` 를 써주면 �
 
 태그에 직접 함수를 만들면 렌더링할 때마다 함수가 생성되지만 useCallback을 사용하면 렌더링할 때 함수를 실행만 하면 된다.
 
+
 ### useStore
 
 useStore는 컴포넌트에서 스토어에 직접 접근해야 하는 상황에만 사용해야 한다. 사용할 일이 흔치 않다.
 
+
 ### useActions 유틸 Hook
 
 [React Redux 의 useActions()](https://react-redux.js.org/api/hooks#recipe-useactions)
+
 useActions Hook 은 액션 생성 함수를 액션을 디스패치하는 함수로 변환해준다.
 
 액션 생성 함수를 사용하여 액션 객체를 만들어 스토어에 디스패치하는 작업을 해주는 함수를 자동으로 만들어 준다.
@@ -318,7 +331,6 @@ useActions Hook 은 액션 생성 함수를 액션을 디스패치하는 함수�
 useActions 에 파라미터로 **액션 생성 함수로 이루어진 배열**과 **deps 배열**이 필요하다.
 
 [lib/useActions.js](https://github.com/KNIGHTWED/react-redux-tutorial/blob/main/src/lib/useActions.js)
-
 
 
 ## 성능 최적화
