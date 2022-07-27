@@ -23,6 +23,7 @@ const CounterContainer = () => {
 // React.memo() 를 이용한 성능 최적화 - useSelector와 같은 Hooks를 이용해 상태를 관리하는 경우 성능 최적화가 필요함
 export default React.memo(CounterContainer);
 
+
 // connect
 // const CounterContainer = ({ number, increase, decrease }) => {
 //   return (
